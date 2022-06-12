@@ -9,8 +9,19 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-
+import os
 from pathlib import Path
+import django_heroku
+import cloudinary
+
+
+cloudinary.config( 
+  cloud_name = "nkatha-photosplash", 
+  api_key = "456841764713855", 
+  api_secret = "mEgAHvtnbJkT5XEDZPgOcv8yXlY" 
+)
+
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,8 +36,8 @@ SECRET_KEY = 'django-insecure-p8ho&2!el2aj$chg_8o9os*0p%u&^)(grgnim5gtn-g9g2johy
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ["*","https://tina-awwwardsapp.herokuapp.com/"]
+CSRF_TRUSTED_ORIGINS = ['https://tina-awwwardsapp.herokuapp.com/','https://*.herokuapp.com']
 
 # Application definition
 
@@ -38,8 +49,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    #own
+    #own installed
     'awwwardapp',
+    'bootstrap4'
 ]
 
 MIDDLEWARE = [
@@ -75,11 +87,15 @@ WSGI_APPLICATION = 'awwwards.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-
+#DATABASE-URL="postgres://fhomfmbnfvyxhd:8058d959d4c08ab512a7021095f08d7330c1940f28f3f4cd53b7e019a8cf5908@ec2-34-198-186-145.compute-1.amazonaws.com:5432/ddl6vpd26um1cj"
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'ddl6vpd26um1cj',
+        'USER': 'fhomfmbnfvyxhd',
+        'PASSWORD': '8058d959d4c08ab512a7021095f08d7330c1940f28f3f4cd53b7e019a8cf5908',
+        'HOST': 'ec2-34-198-186-145.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
@@ -124,3 +140,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+django_heroku.settings(locals())
