@@ -17,11 +17,11 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 import statistics
 from django.urls import reverse
-from email import send_welcome_email
+# from email import send_welcome_email
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from .serializer import ProfileSerializer,ProjectsSerializer
-from awwwardsapp import serializer
+from awwwardapp import serializer
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.decorators import api_view
 
@@ -33,7 +33,7 @@ def welcome_mail(request):
   user = request.user
   email = user.email
   name = user.username
-  send_welcome_email(name, email)
+#   send_welcome_email(name, email)
   return redirect(index)
 
 @login_required
