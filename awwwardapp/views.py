@@ -36,7 +36,7 @@ def welcome_mail(request):
 #   send_welcome_email(name, email)
   return redirect(index)
 
-@login_required
+
 def index(request):
   date=dt.date.today()
   try:
