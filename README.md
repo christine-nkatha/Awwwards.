@@ -9,7 +9,7 @@ Awwwards application will help in the viewing of projects .one can vote but only
 - User can see all profiles of people she has followed
 - Users can also search for a project  they want to view and rate.
 
-- view site in here:
+- view site in here: https://tina-awwwardsapp.herokuapp.com/
 
 ## Technologies Used
 - Python 3.9
