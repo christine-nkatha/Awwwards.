@@ -24,7 +24,7 @@ urlpatterns = [
      path('', include('awwwardapp.urls')),
     path('logout/', auth_views.LogoutView.as_view(next_page='/login')),
     #path('accounts/register/', RegistrationView.as_view(success_url='/home'),name='django_registration_register'),
-   #path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
    # path('login/', auth_views.LoginView.as_view(template_name='registration/login.html'),name='login'),
     path('accounts/', include('django_registration.backends.one_step.urls')),
     
