@@ -209,7 +209,7 @@ def update_profile(request,profile_id):
   return render(request,"profile/updateprof.html",{"user_form":user_form,"update_profile":update_profile})
 
 
-
+@login_required
 def project(request, project_id):
   project = Projects.objects.get(pk=project_id)
   ratings = Ratings.project_votes(project.id)
