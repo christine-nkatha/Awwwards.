@@ -18,7 +18,7 @@ from django.urls import path,include
 from django_registration.backends.one_step.views import RegistrationView
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.views import LoginView, LogoutView
-
+#urls
 urlpatterns = [
     path('admin/', admin.site.urls),
      path('', include('awwwardapp.urls')),
