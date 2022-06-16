@@ -315,3 +315,4 @@ def ProjectList(request):
     return Response(serializers.data)
 #end of funtion-based api-endpoints
 
+#all views
